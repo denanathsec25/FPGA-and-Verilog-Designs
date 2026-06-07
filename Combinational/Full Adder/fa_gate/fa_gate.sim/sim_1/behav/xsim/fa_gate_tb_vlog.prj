@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../Tools/VLSI/Xilinx/2025.2/Vivado/data/rsb/busdef" \
+"../../../../fa_gate.srcs/sources_1/new/fa_gate.v" \
+"../../../../fa_gate.srcs/sources_1/new/fa_gate_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

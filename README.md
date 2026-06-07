@@ -131,7 +131,8 @@ git clone https://github.com/denanathsec25/FPGA-and-Verilog-Designs.git
 4. Verify outputs using the provided testbench.
 5. Generate bitstream and implement on FPGA hardware if required.
 
-License
+##License
+
 This repository is open for educational purposes. Anyone is welcome to use, study, and modify the code for learning, academic, and non-commercial educational activities.
 
 © Denanath Shanmugasundaram

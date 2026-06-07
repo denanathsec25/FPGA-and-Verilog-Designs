@@ -57,7 +57,6 @@ FPGA-and-Verilog-Designs
 * Incrementer
 * Multiplier
 * Full Adder
-
   * Dataflow Modeling
   * Behavioral Modeling
   * Gate-Level Modeling

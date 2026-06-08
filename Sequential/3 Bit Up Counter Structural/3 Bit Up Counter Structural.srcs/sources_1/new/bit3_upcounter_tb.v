@@ -25,6 +25,13 @@ reg clk;
 wire [3:1]q;
 
 bit_up_counter uut(.q(q),.clk(clk));
+
+always @(posedge clk)
+begin
+#1
+$display("clk=%b,q=%b\n",clk,q);
+end
+
 initial begin
 force uut.G1.q = 0; force uut.G1.qbar = 1;
 force uut.G1.w[2] = 1; force uut.G1.w[3] = 0;
@@ -51,10 +58,6 @@ end
 initial begin
 clk=0;
 forever #5 clk=~clk;
-end
-
-initial begin
-$monitor("clk=%b,q=%b\n",clk,q);
 end
 
 initial begin

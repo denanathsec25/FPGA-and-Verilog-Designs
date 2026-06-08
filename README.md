@@ -9,18 +9,19 @@ FPGA-and-Verilog-Designs
 │
 ├── Combinational
 │   ├── AND Gate
-│   ├── Encoder
-│   ├── Even Parity Generator
-│   ├── Incrementer
-│   ├── Multiplier
 │   ├── Adder and Subtractor
-│   ├── Ripple Carry Adder
 │   ├── BCD Adder
 │   ├── Carry Look-Ahead Adder
+|   ├── Decoder
+│   ├── Encoder
+│   ├── Even Parity Generator
 │   ├── Full Adder
 │   │   ├── Dataflow
 │   │   ├── Behavioral
 │   │   └── Gate Level
+│   ├── Incrementer
+│   ├── Multiplier
+│   ├── Ripple Carry Adder
 │   ├── Multiplexer
 │   │   ├── Dataflow
 │   │   ├── Behavioral

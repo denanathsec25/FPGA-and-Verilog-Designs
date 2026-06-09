@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/fa_gate/fa_gate.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Full Adder/FA_Gate/fa_gate.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -43,6 +43,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log fa_gate.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source fa_gate.tcl -notrace
+EAStep vivado -log fa_gate_tb.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source fa_gate_tb.tcl -notrace
 
 

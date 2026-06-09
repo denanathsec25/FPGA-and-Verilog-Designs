@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2025.2
-| Date         : Sun Jun  7 07:25:13 2026
+| Date         : Tue Jun  9 11:09:29 2026
 | Host         : Denanath
 | Design       : design_1
 | Device       : xc7z020-clg484-1--

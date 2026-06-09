@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/BCD_adder/BCD_adder.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -43,6 +43,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log BCD.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source BCD.tcl -notrace
+EAStep vivado -log BCD_tb.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source BCD_tb.tcl -notrace
 
 

@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/Even Parity Genertor/Even Parity Genertor.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Even Parity Genertor/Even Parity Genertor.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

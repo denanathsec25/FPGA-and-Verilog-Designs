@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/mux64to1/mux64to1.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Structural/mux64to1.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

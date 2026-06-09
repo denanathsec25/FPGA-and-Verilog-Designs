@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/impl_1/fa_behavioural.tcl"
+  variable script "E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/impl_1/fa_behavioural.tcl"
   variable category "vivado_impl"
 }
 
@@ -97,8 +97,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -106,7 +104,6 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param checkpoint.writeSynthRtdsInDcp 1
   set_param general.usePosixSpawnForFork 1
   set_param chipscope.maxJobs 5
   set_param runs.launchOptions { -jobs 10  }
@@ -116,14 +113,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir E:/VLSI/Verilog/fa_behavioral/fa_behavioral.cache/wt [current_project]
-  set_property parent.project_path E:/VLSI/Verilog/fa_behavioral/fa_behavioral.xpr [current_project]
-  set_property ip_output_repo E:/VLSI/Verilog/fa_behavioral/fa_behavioral.cache/ip [current_project]
+  set_property webtalk.parent_dir {E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.cache/wt} [current_project]
+  set_property parent.project_path {E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.xpr} [current_project]
+  set_property ip_output_repo {{E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1/fa_behavioural.dcp
+  add_files -quiet {{E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1/fa_behavioural.dcp}}
 OPTRACE "read constraints: implementation" START { }
+  read_xdc {{E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/constrs_1/new/FA.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "E:/VLSI/Verilog/encoder/encoder.runs/impl_1/encoder.tcl"
+  variable script "E:/VLSI/Verilog/Combinational/Encoder/encoder.runs/impl_1/encoder.tcl"
   variable category "vivado_impl"
 }
 
@@ -113,13 +113,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir E:/VLSI/Verilog/encoder/encoder.cache/wt [current_project]
-  set_property parent.project_path E:/VLSI/Verilog/encoder/encoder.xpr [current_project]
-  set_property ip_output_repo E:/VLSI/Verilog/encoder/encoder.cache/ip [current_project]
+  set_property webtalk.parent_dir E:/VLSI/Verilog/Combinational/Encoder/encoder.cache/wt [current_project]
+  set_property parent.project_path E:/VLSI/Verilog/Combinational/Encoder/encoder.xpr [current_project]
+  set_property ip_output_repo E:/VLSI/Verilog/Combinational/Encoder/encoder.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet E:/VLSI/Verilog/encoder/encoder.runs/synth_1/encoder.dcp
+  add_files -quiet E:/VLSI/Verilog/Combinational/Encoder/encoder.runs/synth_1/encoder.dcp
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }

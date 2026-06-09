@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/Ripple_carry_adder/Ripple_carry_adder.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Ripple_carry_adder/Ripple_carry_adder.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -3,12 +3,12 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sun May 17 06:25:09 2026
-# Process ID         : 32996
-# Current directory  : E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1
+# Start of session at: Tue Jun  9 11:31:01 2026
+# Process ID         : 28684
+# Current directory  : E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1
 # Command line       : vivado.exe -log fa_behavioural.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fa_behavioural.tcl
-# Log file           : E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1/fa_behavioural.vds
-# Journal file       : E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1\vivado.jou
+# Log file           : E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1/fa_behavioural.vds
+# Journal file       : E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1\vivado.jou
 # Running On         : Denanath
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
@@ -17,52 +17,87 @@
 # CPU Physical cores : 14
 # CPU Logical cores  : 20
 # Host memory        : 16849 MB
-# Swap memory        : 11811 MB
-# Total Virtual      : 28660 MB
-# Available Virtual  : 7188 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 25976 MB
+# Available Virtual  : 6660 MB
 #-----------------------------------------------------------
 source fa_behavioural.tcl -notrace
-create_project: Time (s): cpu = 00:00:40 ; elapsed = 00:00:22 . Memory (MB): peak = 554.473 ; gain = 220.668
+create_project: Time (s): cpu = 00:00:39 ; elapsed = 00:00:25 . Memory (MB): peak = 554.617 ; gain = 220.219
+Command: read_checkpoint -auto_incremental -incremental {E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/utils_1/imports/synth_1/fa_behavioural.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/utils_1/imports/synth_1/fa_behavioural.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top fa_behavioural -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 28720
+INFO: [Synth 8-7075] Helper process launched with PID 19100
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1097.145 ; gain = 537.695
+Starting RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1332.406 ; gain = 542.156
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'fa_behavioural' [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:23]
-WARNING: [Synth 8-151] case item 3'b000 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b001 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b010 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b011 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b100 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b101 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b110 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-WARNING: [Synth 8-151] case item 3'b111 is unreachable [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
-INFO: [Synth 8-6155] done synthesizing module 'fa_behavioural' (0#1) [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:23]
-WARNING: [Synth 8-3848] Net carry in module/entity fa_behavioural does not have driver. [E:/VLSI/Verilog/fa_behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:24]
+INFO: [Synth 8-6157] synthesizing module 'fa_behavioural' [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:23]
+WARNING: [Synth 8-151] case item 3'b000 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b001 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b010 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b011 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b100 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b101 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b110 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+WARNING: [Synth 8-151] case item 3'b111 is unreachable [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:29]
+INFO: [Synth 8-6155] done synthesizing module 'fa_behavioural' (0#1) [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:23]
+WARNING: [Synth 8-3848] Net carry in module/entity fa_behavioural does not have driver. [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/sources_1/new/fa_behavioural.v:24]
 WARNING: [Synth 8-7129] Port carry in module fa_behavioural is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1215.539 ; gain = 656.090
+Finished RTL Elaboration : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1449.570 ; gain = 659.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1215.539 ; gain = 656.090
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1449.570 ; gain = 659.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1449.570 ; gain = 659.320
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1449.570 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/constrs_1/new/FA.xdc]
+Finished Parsing XDC File [E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.srcs/constrs_1/new/FA.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1449.570 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1449.570 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:01 ; elapsed = 00:01:06 . Memory (MB): peak = 1449.570 ; gain = 659.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1215.539 ; gain = 656.090
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:01 ; elapsed = 00:01:06 . Memory (MB): peak = 1449.570 ; gain = 659.320
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1215.539 ; gain = 656.090
+Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:06 . Memory (MB): peak = 1449.570 ; gain = 659.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:07 . Memory (MB): peak = 1449.570 ; gain = 659.320
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -81,26 +116,30 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7129] Port carry in module fa_behavioural is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1427.773 ; gain = 868.324
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:13 . Memory (MB): peak = 1481.016 ; gain = 690.766
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:30 ; elapsed = 00:01:37 . Memory (MB): peak = 1648.711 ; gain = 858.461
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1443.609 ; gain = 884.160
+Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:37 . Memory (MB): peak = 1648.711 ; gain = 858.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1443.609 ; gain = 884.160
+Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:01:38 . Memory (MB): peak = 1658.273 ; gain = 868.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -118,37 +157,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished IO Insertion : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -169,33 +208,26 @@ Report Cell Usage:
 |3     |OBUF  |     1|
 |4     |OBUFT |     1|
 +------+------+------+
-
-Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     6|
-+------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:47 ; elapsed = 00:01:56 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1678.836 ; gain = 1119.387
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:12 ; elapsed = 00:01:49 . Memory (MB): peak = 1907.754 ; gain = 1117.504
+Synthesis Optimization Complete : Time (s): cpu = 00:01:48 ; elapsed = 00:01:57 . Memory (MB): peak = 1907.754 ; gain = 1117.504
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1693.855 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1911.887 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1812.262 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1915.426 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: 2c4cb581
 INFO: [Common 17-83] Releasing license: Synthesis
-12 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
+20 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1812.262 ; gain = 1257.789
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1812.262 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'E:/VLSI/Verilog/fa_behavioral/fa_behavioral.runs/synth_1/fa_behavioural.dcp' has been generated.
+synth_design: Time (s): cpu = 00:02:04 ; elapsed = 00:02:19 . Memory (MB): peak = 1915.426 ; gain = 1354.590
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1915.426 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/VLSI/Verilog/Combinational/Full Adder/FA_Behavioral/fa_behavioral.runs/synth_1/fa_behavioural.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file fa_behavioural_utilization_synth.rpt -pb fa_behavioural_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 17 06:25:50 2026...
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  9 11:33:52 2026...

@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/FA Data/FA Data.runs/impl_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/Full Adder/FA Data/FA Data.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

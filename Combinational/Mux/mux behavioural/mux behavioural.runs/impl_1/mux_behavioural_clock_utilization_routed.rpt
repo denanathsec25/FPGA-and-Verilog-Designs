@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Sun May 17 06:44:52 2026
+| Date         : Tue Jun  9 06:59:45 2026
 | Host         : Denanath running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file mux_behavioural_clock_utilization_routed.rpt
 | Design       : mux_behavioural

@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "E:/VLSI/Verilog/SISO/SISO.runs/impl_1/SISO.tcl"
+  variable script "E:/VLSI/Verilog/Sequential/SISO Structural/SISO.runs/impl_1/SISO.tcl"
   variable category "vivado_impl"
 }
 
@@ -113,13 +113,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir E:/VLSI/Verilog/SISO/SISO.cache/wt [current_project]
-  set_property parent.project_path E:/VLSI/Verilog/SISO/SISO.xpr [current_project]
-  set_property ip_output_repo E:/VLSI/Verilog/SISO/SISO.cache/ip [current_project]
+  set_property webtalk.parent_dir {E:/VLSI/Verilog/Sequential/SISO Structural/SISO.cache/wt} [current_project]
+  set_property parent.project_path {E:/VLSI/Verilog/Sequential/SISO Structural/SISO.xpr} [current_project]
+  set_property ip_output_repo {{E:/VLSI/Verilog/Sequential/SISO Structural/SISO.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet E:/VLSI/Verilog/SISO/SISO.runs/synth_1/SISO.dcp
+  add_files -quiet {{E:/VLSI/Verilog/Sequential/SISO Structural/SISO.runs/synth_1/SISO.dcp}}
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }

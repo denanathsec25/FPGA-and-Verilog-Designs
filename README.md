@@ -40,7 +40,9 @@ FPGA-and-Verilog-Designs
 │   │   ├── Behavioral
 │   │   └── Structural
 │   ├── Master-Slave Flip-Flop
-│   ├── Shift Registers
+│   ├── Registers
+|   |   ├──PISO
+|   |   └──SISO Structural
 │   └── Counters
 │
 ├── README.md

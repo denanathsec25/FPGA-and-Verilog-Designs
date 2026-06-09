@@ -11,5 +11,5 @@ set_property IOSTANDARD LVCMOS18 [get_ports {s[2]}]
 set_property IOSTANDARD LVCMOS18 [get_ports {s[1]}]
 set_property IOSTANDARD LVCMOS18 [get_ports {s[0]}]
 set_property IOSTANDARD LVCMOS18 [get_ports cin]
-set_property IOSTANDARD LVCMOS18 [get_ports {c[1]}]
-set_property IOSTANDARD LVCMOS18 [get_ports {c[0]}]
+
+set_property IOSTANDARD LVCMOS18 [get_ports c]

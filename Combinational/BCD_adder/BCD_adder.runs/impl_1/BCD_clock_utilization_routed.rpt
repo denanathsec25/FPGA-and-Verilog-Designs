@@ -1,9 +1,9 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Tue Jun  9 11:11:00 2026
+| Date         : Tue Jun  9 19:42:52 2026
 | Host         : Denanath running 64-bit major release  (build 9200)
-| Command      : report_clock_utilization -file BCD_tb_clock_utilization_routed.rpt
+| Command      : report_clock_utilization -file BCD_clock_utilization_routed.rpt
 | Design       : BCD
 | Device       : 7vx485t-ffg1157
 | Speed File   : -1  PRODUCTION 1.12 2014-09-11

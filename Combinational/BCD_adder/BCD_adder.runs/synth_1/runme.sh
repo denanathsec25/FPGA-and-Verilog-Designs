@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/VLSI/Verilog/BCD_adder/BCD_adder.runs/synth_1'
+HD_PWD='E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

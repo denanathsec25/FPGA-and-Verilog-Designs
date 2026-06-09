@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.runs/impl_1/BCD_tb.tcl"
+  variable script "E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.runs/impl_1/BCD.tcl"
   variable category "vivado_impl"
 }
 
@@ -121,12 +121,13 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.runs/synth_1/BCD.dcp
 OPTRACE "read constraints: implementation" START { }
+  read_xdc E:/VLSI/Verilog/Combinational/BCD_adder/BCD_adder.srcs/constrs_1/new/BCD.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top BCD_tb -part xc7vx485tffg1157-1 
+  link_design -top BCD -part xc7vx485tffg1157-1 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -159,11 +160,11 @@ OPTRACE "read constraints: opt_design_post" START { }
 OPTRACE "read constraints: opt_design_post" END { }
 OPTRACE "opt_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_drc -file BCD_tb_drc_opted.rpt -pb BCD_tb_drc_opted.pb -rpx BCD_tb_drc_opted.rpx"  }
+  generate_parallel_reports -reports { "report_drc -file BCD_drc_opted.rpt -pb BCD_drc_opted.pb -rpx BCD_drc_opted.rpx"  }
   set_param project.isImplRun false
 OPTRACE "opt_design reports" END { }
 OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force BCD_tb_opt.dcp
+  write_checkpoint -force BCD_opt.dcp
 OPTRACE "Opt Design: write_checkpoint" END { }
   close_msg_db -file opt_design.pb
 } RESULT]
@@ -197,11 +198,11 @@ OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
 OPTRACE "place_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_io -file BCD_tb_io_placed.rpt" "report_utilization -file BCD_tb_utilization_placed.rpt -pb BCD_tb_utilization_placed.pb" "report_control_sets -verbose -file BCD_tb_control_sets_placed.rpt"  }
+  generate_parallel_reports -reports { "report_io -file BCD_io_placed.rpt" "report_utilization -file BCD_utilization_placed.rpt -pb BCD_utilization_placed.pb" "report_control_sets -verbose -file BCD_control_sets_placed.rpt"  }
   set_param project.isImplRun false
 OPTRACE "place_design reports" END { }
 OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force BCD_tb_placed.dcp
+  write_checkpoint -force BCD_placed.dcp
 OPTRACE "Place Design: write_checkpoint" END { }
   close_msg_db -file place_design.pb
 } RESULT]
@@ -229,7 +230,7 @@ OPTRACE "read constraints: phys_opt_design_post" END { }
 OPTRACE "phys_opt_design report" START { REPORT }
 OPTRACE "phys_opt_design report" END { }
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force BCD_tb_physopt.dcp
+  write_checkpoint -force BCD_physopt.dcp
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
   close_msg_db -file phys_opt_design.pb
 } RESULT]
@@ -256,11 +257,11 @@ OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
 OPTRACE "route_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_drc -file BCD_tb_drc_routed.rpt -pb BCD_tb_drc_routed.pb -rpx BCD_tb_drc_routed.rpx" "report_methodology -file BCD_tb_methodology_drc_routed.rpt -pb BCD_tb_methodology_drc_routed.pb -rpx BCD_tb_methodology_drc_routed.rpx" "report_power -file BCD_tb_power_routed.rpt -pb BCD_tb_power_summary_routed.pb -rpx BCD_tb_power_routed.rpx" "report_route_status -file BCD_tb_route_status.rpt -pb BCD_tb_route_status.pb" "report_timing_summary -max_paths 10 -routable_nets -report_unconstrained -file BCD_tb_timing_summary_routed.rpt -pb BCD_tb_timing_summary_routed.pb -rpx BCD_tb_timing_summary_routed.rpx -warn_on_violation " "report_incremental_reuse -file BCD_tb_incremental_reuse_routed.rpt" "report_clock_utilization -file BCD_tb_clock_utilization_routed.rpt" "report_bus_skew -warn_on_violation -file BCD_tb_bus_skew_routed.rpt -pb BCD_tb_bus_skew_routed.pb -rpx BCD_tb_bus_skew_routed.rpx"  }
+  generate_parallel_reports -reports { "report_drc -file BCD_drc_routed.rpt -pb BCD_drc_routed.pb -rpx BCD_drc_routed.rpx" "report_methodology -file BCD_methodology_drc_routed.rpt -pb BCD_methodology_drc_routed.pb -rpx BCD_methodology_drc_routed.rpx" "report_power -file BCD_power_routed.rpt -pb BCD_power_summary_routed.pb -rpx BCD_power_routed.rpx" "report_route_status -file BCD_route_status.rpt -pb BCD_route_status.pb" "report_timing_summary -max_paths 10 -routable_nets -report_unconstrained -file BCD_timing_summary_routed.rpt -pb BCD_timing_summary_routed.pb -rpx BCD_timing_summary_routed.rpx -warn_on_violation " "report_incremental_reuse -file BCD_incremental_reuse_routed.rpt" "report_clock_utilization -file BCD_clock_utilization_routed.rpt" "report_bus_skew -warn_on_violation -file BCD_bus_skew_routed.rpt -pb BCD_bus_skew_routed.pb -rpx BCD_bus_skew_routed.rpx"  }
   set_param project.isImplRun false
 OPTRACE "route_design reports" END { }
 OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force BCD_tb_routed.dcp
+  write_checkpoint -force BCD_routed.dcp
 OPTRACE "Route Design: write_checkpoint" END { }
 OPTRACE "route_design misc" START { }
   close_msg_db -file route_design.pb
@@ -268,7 +269,7 @@ OPTRACE "route_design misc" START { }
 if {$rc} {
 OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
 OPTRACE "route_design write_checkpoint" END { }
-  write_checkpoint -force BCD_tb_routed_error.dcp
+  write_checkpoint -force BCD_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {

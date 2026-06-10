@@ -31,6 +31,8 @@ FPGA-and-Verilog-Designs
 │       ├── Behavioral
 │       └── Structural
 │
+├── Line Follower
+│
 ├── Sequential
 │   ├── D Flip-Flop Behavioural
 │   ├── JK Flip-Flop

@@ -1,0 +1,61 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Jun 10 12:44:31 2026
+| Host         : Denanath running 64-bit major release  (build 9200)
+| Command      : report_methodology -file line_follower_methodology_drc_routed.rpt -pb line_follower_methodology_drc_routed.pb -rpx line_follower_methodology_drc_routed.rpx
+| Design       : line_follower
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 5
++-----------+----------+--------------------------------+--------+
+| Rule      | Severity | Description                    | Checks |
++-----------+----------+--------------------------------+--------+
+| TIMING-20 | Warning  | Non-clocked latch              | 4      |
+| LATCH-1   | Advisory | Existing latches in the design | 1      |
++-----------+----------+--------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch LMN_reg cannot be properly analyzed as its control pin LMN_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch LMP_reg cannot be properly analyzed as its control pin LMP_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch RMN_reg cannot be properly analyzed as its control pin RMN_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch RMP_reg cannot be properly analyzed as its control pin RMP_reg/G is not reached by a timing clock
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 4 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+Related violations: <none>
+
+

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "E:/VLSI/Verilog/mux64to1 Data Flow/mux64to1 Data Flow.runs/synth_1/mux64to1_data.tcl"
+  variable script "E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.runs/synth_1/mux64to1_data.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,22 +56,26 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
 set_param general.usePosixSpawnForFork 1
+set_param chipscope.maxJobs 5
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {E:/VLSI/Verilog/mux64to1 Data Flow/mux64to1 Data Flow.cache/wt} [current_project]
-set_property parent.project_path {E:/VLSI/Verilog/mux64to1 Data Flow/mux64to1 Data Flow.xpr} [current_project]
+set_property webtalk.parent_dir {E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.cache/wt} [current_project]
+set_property parent.project_path {E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo {e:/VLSI/Verilog/mux64to1 Data Flow/mux64to1 Data Flow.cache/ip} [current_project]
+set_property ip_output_repo {e:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib {{E:/VLSI/Verilog/mux64to1 Data Flow/mux64to1 Data Flow.srcs/sources_1/new/mux64to1_data.v}}
+read_verilog -library xil_defaultlib {{E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.srcs/sources_1/new/mux64to1_data.v}}
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -81,7 +85,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc {{E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.srcs/constrs_1/new/Mux 64 to 1 Data flow.xdc}}
+set_property used_in_implementation false [get_files {{E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.srcs/constrs_1/new/Mux 64 to 1 Data flow.xdc}}]
+
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental {E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.srcs/utils_1/imports/synth_1/mux64to1_data.dcp}
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

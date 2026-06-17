@@ -124,6 +124,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet {{E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.runs/synth_1/mux64to1_data.dcp}}
 OPTRACE "read constraints: implementation" START { }
+  read_xdc {{E:/VLSI/Verilog/Combinational/Mux 64 to 1/Mux64to1 Data Flow/mux64to1 Data Flow.srcs/constrs_1/new/Mux 64 to 1 Data flow.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Tue Jun  9 07:08:56 2026
+| Date         : Wed Jun 17 16:30:11 2026
 | Host         : Denanath running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -routable_nets -report_unconstrained -file mux64to1_data_timing_summary_routed.rpt -pb mux64to1_data_timing_summary_routed.pb -rpx mux64to1_data_timing_summary_routed.rpx -warn_on_violation
 | Design       : mux64to1_data
@@ -138,7 +138,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-         NA           NA                     NA                   NA           NA           NA                     NA                   NA           NA           NA                      NA                    NA  
+        inf        0.000                      0                    1          inf        0.000                      0                    1           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -193,11 +193,92 @@ Path Group    From Clock    To Clock
 
 Path Group    From Clock    To Clock    
 ----------    ----------    --------    
+(none)                                    
 
 
 ------------------------------------------------------------------------------------------------
 | Timing Details
 | --------------
 ------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 A[50]
+                            (input port)
+  Destination:            y
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        16.723ns  (logic 4.301ns (25.721%)  route 12.422ns (74.279%))
+  Logic Levels:           6  (IBUF=1 LUT6=2 MUXF7=1 MUXF8=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    U14                                               0.000     0.000 r  A[50] (IN)
+                         net (fo=0)                   0.000     0.000    A[50]
+    U14                  IBUF (Prop_ibuf_I_O)         0.932     0.932 r  A_IBUF[50]_inst/O
+                         net (fo=1, routed)           5.621     6.553    A_IBUF[50]
+    SLICE_X0Y18          LUT6 (Prop_lut6_I3_O)        0.124     6.677 r  y_OBUF_inst_i_29/O
+                         net (fo=1, routed)           0.000     6.677    y_OBUF_inst_i_29_n_0
+    SLICE_X0Y18          MUXF7 (Prop_muxf7_I1_O)      0.214     6.891 r  y_OBUF_inst_i_13/O
+                         net (fo=1, routed)           0.000     6.891    y_OBUF_inst_i_13_n_0
+    SLICE_X0Y18          MUXF8 (Prop_muxf8_I1_O)      0.088     6.979 r  y_OBUF_inst_i_5/O
+                         net (fo=1, routed)           0.810     7.789    y_OBUF_inst_i_5_n_0
+    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.319     8.108 r  y_OBUF_inst_i_1/O
+                         net (fo=1, routed)           5.991    14.099    y_OBUF
+    U15                  OBUF (Prop_obuf_I_O)         2.624    16.723 r  y_OBUF_inst/O
+                         net (fo=0)                   0.000    16.723    y
+    U15                                                               r  y (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 A[15]
+                            (input port)
+  Destination:            y
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        4.629ns  (logic 1.595ns (34.443%)  route 3.035ns (65.557%))
+  Logic Levels:           6  (IBUF=1 LUT6=2 MUXF7=1 MUXF8=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    AB6                                               0.000     0.000 r  A[15] (IN)
+                         net (fo=0)                   0.000     0.000    A[15]
+    AB6                  IBUF (Prop_ibuf_I_O)         0.200     0.200 r  A_IBUF[15]_inst/O
+                         net (fo=1, routed)           0.468     0.669    A_IBUF[15]
+    SLICE_X0Y17          LUT6 (Prop_lut6_I0_O)        0.045     0.714 r  y_OBUF_inst_i_14/O
+                         net (fo=1, routed)           0.000     0.714    y_OBUF_inst_i_14_n_0
+    SLICE_X0Y17          MUXF7 (Prop_muxf7_I0_O)      0.073     0.787 r  y_OBUF_inst_i_6/O
+                         net (fo=1, routed)           0.000     0.787    y_OBUF_inst_i_6_n_0
+    SLICE_X0Y17          MUXF8 (Prop_muxf8_I0_O)      0.022     0.809 r  y_OBUF_inst_i_2/O
+                         net (fo=1, routed)           0.115     0.924    y_OBUF_inst_i_2_n_0
+    SLICE_X1Y17          LUT6 (Prop_lut6_I0_O)        0.113     1.037 r  y_OBUF_inst_i_1/O
+                         net (fo=1, routed)           2.452     3.488    y_OBUF
+    U15                  OBUF (Prop_obuf_I_O)         1.141     4.629 r  y_OBUF_inst/O
+                         net (fo=0)                   0.000     4.629    y
+    U15                                                               r  y (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
 
 

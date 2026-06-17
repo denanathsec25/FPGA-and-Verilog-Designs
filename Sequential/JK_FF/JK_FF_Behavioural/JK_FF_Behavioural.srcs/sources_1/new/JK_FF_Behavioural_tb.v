@@ -28,6 +28,7 @@ wire q,qbar;
 JK_FF_Behavioural uut(.q(q),.qbar(qbar),.clk(clk),.rst(rst),.j(j),.k(k));
 always @(posedge clk)
 begin
+#1
 $display("j=%b,k=%b,q=%b,qbar=%b\n",j,k,q,qbar);
 end
 initial

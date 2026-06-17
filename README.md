@@ -122,6 +122,20 @@ FPGA-and-Verilog-Designs
 * XSim Simulator
 * FPGA Development Boards
 
+## FPGA Resource Analysis
+
+### 64:1 Multiplexer Resource Utilization Comparison
+
+![64:1 MUX Comparison](images/mux64to1_lut_comparison.png)
+
+| Modeling Style | Slice LUTs | F7 Muxes | F8 Muxes | Bonded IOB |
+|---------------|------------|----------|----------|------------|
+| Behavioral | 17 | 8 | 4 | 70 |
+| Dataflow | 17 | 8 | 4 | 71 |
+| Structural | 17 | 8 | 4 | 71 |
+
+The synthesis results show that all three modeling styles were optimized into equivalent FPGA hardware by Vivado, resulting in identical resource utilization.
+
 ## Features
 
 * Verilog source code
@@ -139,16 +153,6 @@ This repository is intended for:
 * Verilog HDL learning
 * VLSI design fundamentals
 * Academic projects and experiments
-
-  ## Learning Objectives
-
-This repository is intended for:
-
-- Digital Electronics laboratory work
-- FPGA design practice
-- Verilog HDL learning
-- VLSI design fundamentals
-- Academic projects and experiments
 
 ## Skills Gained
 

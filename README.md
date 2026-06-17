@@ -126,7 +126,7 @@ FPGA-and-Verilog-Designs
 
 ### 64:1 Multiplexer Resource Utilization Comparison
 
-![64:1 MUX Comparison](Combinational/Mux 64 to 1/Comparison of LUT's For Mux.png)
+![64:1 MUX Comparison](Combinational/Mux_64_to_1/mux64to1_lut_comparison.png)
 
 | Modeling Style | Slice LUTs | F7 Muxes | F8 Muxes | Bonded IOB |
 |---------------|------------|----------|----------|------------|

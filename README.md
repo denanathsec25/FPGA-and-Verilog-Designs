@@ -1,6 +1,23 @@
 # FPGA and Verilog Designs
 
+![Verilog](https://img.shields.io/badge/Language-Verilog-blue)
+![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado-green)
+![FPGA](https://img.shields.io/badge/Domain-FPGA-orange)
+![VLSI](https://img.shields.io/badge/Domain-VLSI-red)
+![License](https://img.shields.io/badge/License-Educational-yellow)
+
 A collection of Verilog HDL implementations of fundamental digital circuits developed for Digital Electronics, VLSI, and FPGA design practice. This repository contains both combinational and sequential circuit designs along with simulation and verification files created using Xilinx Vivado.
+
+## Repository Highlights
+
+- 20+ Digital Design Implementations
+- Combinational and Sequential Circuits
+- Behavioral, Dataflow, Structural, and Gate-Level Modeling
+- FPGA Mini Projects
+- Simulation Testbenches
+- Vivado Synthesis and Verification
+- LUT Utilization Analysis for 64:1 Multiplexer
+- Xilinx Vivado Project Files
 
 ## Repository Structure
 
@@ -105,6 +122,20 @@ FPGA-and-Verilog-Designs
 * XSim Simulator
 * FPGA Development Boards
 
+## FPGA Resource Analysis
+
+### 64:1 Multiplexer Resource Utilization Comparison
+
+![64:1 MUX Comparison](images/mux64to1_lut_comparison.png)
+
+| Modeling Style | Slice LUTs | F7 Muxes | F8 Muxes | Bonded IOB |
+|---------------|------------|----------|----------|------------|
+| Behavioral | 17 | 8 | 4 | 70 |
+| Dataflow | 17 | 8 | 4 | 71 |
+| Structural | 17 | 8 | 4 | 71 |
+
+The synthesis results show that all three modeling styles were optimized into equivalent FPGA hardware by Vivado, resulting in identical resource utilization.
+
 ## Features
 
 * Verilog source code
@@ -123,6 +154,18 @@ This repository is intended for:
 * VLSI design fundamentals
 * Academic projects and experiments
 
+## Skills Gained
+
+- Verilog HDL
+- RTL Design
+- Combinational Logic Design
+- Sequential Logic Design
+- FPGA Design Flow
+- Simulation and Verification
+- Testbench Development
+- Resource Utilization Analysis
+- Digital System Design
+
 ## Getting Started
 
 1. Clone the repository:
@@ -135,6 +178,18 @@ git clone https://github.com/denanathsec25/FPGA-and-Verilog-Designs.git
 3. Run behavioral simulation.
 4. Verify outputs using the provided testbench.
 5. Generate bitstream and implement on FPGA hardware if required.
+
+## Future Additions
+
+- Finite State Machines (FSM)
+- UART Protocol
+- SPI Protocol
+- I2C Protocol
+- PWM Generator
+- Traffic Light Controller
+- ALU Design
+- Memory Design
+- RISC-V Processor Modules
 
 ## License
 
@@ -152,10 +207,16 @@ Bannari Amman Institute of Technology
 
 📧 Email: [denanathshanmugasundaram@gmail.com](mailto:denanathshanmugasundaram@gmail.com)
 
-📱 Contact: +91 9894634656
-
 🔗 GitHub: https://github.com/denanathsec25
 
 ## Support
 
-⭐ If you find this repository useful, consider starring the repository.
+If you find this repository useful for learning Verilog, FPGA Design, or Digital Electronics:
+
+⭐ Star the repository
+
+🍴 Fork it for your own experiments
+
+📢 Share it with fellow students and FPGA enthusiasts
+
+Contributions, suggestions, and feedback are always welcome.

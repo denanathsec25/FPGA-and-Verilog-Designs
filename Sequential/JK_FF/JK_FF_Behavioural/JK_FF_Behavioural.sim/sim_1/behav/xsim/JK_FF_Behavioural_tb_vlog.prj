@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../../../../Tools/VLSI/Xilinx/2025.2/Vivado/data/rsb/busdef" \
+verilog xil_defaultlib  --include "../../../../../../../../../Tools/VLSI/Xilinx/2025.2/Vivado/data/rsb/busdef" \
 "../../../../JK_FF_Behavioural.srcs/sources_1/new/JK__FF_Behavioural.v" \
 "../../../../JK_FF_Behavioural.srcs/sources_1/new/JK_FF_Behavioural_tb.v" \
 

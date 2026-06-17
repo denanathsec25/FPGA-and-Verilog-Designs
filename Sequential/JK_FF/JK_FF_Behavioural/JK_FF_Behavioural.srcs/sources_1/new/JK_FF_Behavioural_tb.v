@@ -26,10 +26,9 @@ reg clk,rst,j,k;
 wire q,qbar;
 
 JK_FF_Behavioural uut(.q(q),.qbar(qbar),.clk(clk),.rst(rst),.j(j),.k(k));
-
-initial
+always @(posedge clk)
 begin
-$monitor($time,"j=%b,k=%b,q=%b,qbar=%b\n",j,k,q,qbar);
+$display("j=%b,k=%b,q=%b,qbar=%b\n",j,k,q,qbar);
 end
 initial
 begin
@@ -41,6 +40,7 @@ forever #5 clk=~clk;
 end	
 initial 
 begin
+#10
 j=0;k=0;
 #10
 j=0;k= 1;
@@ -50,5 +50,8 @@ j=1;k=0;
 j=1;k= 1;
 #10
 j=1;k=0;
+end
+initial begin
+#50 $finish;
 end
 endmodule

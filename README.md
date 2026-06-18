@@ -63,7 +63,8 @@ FPGA-and-Verilog-Designs
 |   |   ├──PISO
 |   |   └──SISO Structural
 │   └── Counters
-│
+│         ├──3 Bit Up Counter
+│         └──3 Bit Down Counter
 ├── README.md
 ├── LICENSE
 └── .gitignore
@@ -107,6 +108,8 @@ FPGA-and-Verilog-Designs
 * Master-Slave Flip-Flop
 * Shift Registers
 * Counters
+   * 3 Bit Up Counter
+   * 3 Bit Down Counter
 
 ## Modeling Techniques Used
 

@@ -31,6 +31,7 @@ begin
 #1
 $display("j=%b,k=%b,q=%b,qbar=%b\n",j,k,q,qbar);
 end
+
 initial
 begin
 clk=0;
@@ -39,6 +40,7 @@ rst=0;
 rst=1;
 forever #5 clk=~clk;
 end	
+
 initial 
 begin
 #10

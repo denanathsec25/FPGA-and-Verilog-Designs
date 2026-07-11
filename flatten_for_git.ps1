@@ -1,4 +1,3 @@
-# flatten_for_git.ps1
 $root = "E:\VLSI\Verilog"
 
 $files = Get-ChildItem -Path $root -Recurse -File | Where-Object {
@@ -7,12 +6,17 @@ $files = Get-ChildItem -Path $root -Recurse -File | Where-Object {
 }
 
 foreach ($file in $files) {
-    if ($file.FullName -match "^(.*)\.srcs\\(sources_1|constrs_1)\\new\\(.*)$") {
-        $projectFolder = $matches[1].TrimEnd('\')
+    if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1)\\new\\(.*)$") {
+        $projectFolder = $matches[1]
         $fileName = $matches[3]
         $destPath = Join-Path $projectFolder $fileName
-        Copy-Item -Path $file.FullName -Destination $destPath -Force
-        Write-Host "Copied: $fileName -> $projectFolder"
+
+        try {
+            Copy-Item -Path $file.FullName -Destination $destPath -Force -ErrorAction Stop
+            Write-Host "Copied: $fileName -> $projectFolder"
+        } catch {
+            Write-Host "FAILED: $($file.FullName) -> $destPath"
+        }
     }
 }
 

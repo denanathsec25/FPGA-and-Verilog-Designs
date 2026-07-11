@@ -1,0 +1,5 @@
+set_property IOSTANDARD LVCMOS18 [get_ports a]
+set_property IOSTANDARD LVCMOS18 [get_ports c]
+set_property IOSTANDARD LVCMOS18 [get_ports carry]
+set_property IOSTANDARD LVCMOS18 [get_ports sum]
+set_property IOSTANDARD LVCMOS18 [get_ports b]

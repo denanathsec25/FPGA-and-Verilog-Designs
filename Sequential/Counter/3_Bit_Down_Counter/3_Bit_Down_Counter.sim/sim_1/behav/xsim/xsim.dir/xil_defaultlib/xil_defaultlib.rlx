@@ -1,7 +1,0 @@
-0.7
-2020.2
-Nov 14 2025
-19:37:27
-E:/VLSI/Verilog/Sequential/Counter/3_Bit_Down_Counter/3_Bit_Down_Counter.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
-E:/VLSI/Verilog/Sequential/Counter/3_Bit_Down_Counter/3_Bit_Down_Counter.srcs/sources_1/new/3_Bit_tb.v,1781775908,verilog,,,,Bit_Down_tb,,,../../../../../../../../../Tools/VLSI/Xilinx/2025.2/Vivado/data/rsb/busdef,,,,,
-E:/VLSI/Verilog/Sequential/Counter/3_Bit_Down_Counter/3_Bit_Down_Counter.srcs/sources_1/new/Down_Counter.v,1781775445,verilog,,E:/VLSI/Verilog/Sequential/Counter/3_Bit_Down_Counter/3_Bit_Down_Counter.srcs/sources_1/new/3_Bit_tb.v,,Down_Counter;Master_Slave;nand3,,,../../../../../../../../../Tools/VLSI/Xilinx/2025.2/Vivado/data/rsb/busdef,,,,,

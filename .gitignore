@@ -1,25 +1,28 @@
-# Vivado generated directories
+*.srcs/
+*.xpr
+.Xil/
 .cache/
+.gen/
 .hw/
 .ip_user_files/
 .runs/
 .sim/
-.gen/
-.Xil/
-
-# Vivado logs and temporary files
 *.jou
 *.log
 *.str
-
-# Simulation files
+*.tmp
+*.bak
+*~
+*.bit
+*.bin
+*.ltx
+*.mmi
+*.webtalk
+*.xml
 *.wdb
+*.vcd
 *.pb
-
-# Editor settings
-.vscode/
-.idea/
-
-# Operating system files
+*.o
+*.obj
 .DS_Store
 Thumbs.db

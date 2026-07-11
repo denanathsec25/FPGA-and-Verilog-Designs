@@ -1,7 +1,0 @@
-set_property IOSTANDARD LVCMOS18 [get_ports {d[3]}]
-set_property IOSTANDARD LVCMOS18 [get_ports {d[1]}]
-set_property IOSTANDARD LVCMOS18 [get_ports {d[2]}]
-set_property IOSTANDARD LVCMOS18 [get_ports {d[0]}]
-set_property IOSTANDARD LVCMOS18 [get_ports clk]
-set_property IOSTANDARD LVCMOS18 [get_ports l]
-set_property IOSTANDARD LVCMOS18 [get_ports y]

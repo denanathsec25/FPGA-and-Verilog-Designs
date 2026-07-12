@@ -107,4 +107,20 @@ begin
         end 
     end 
 end
+
+Display_controler display_unit (
+        .clk(clk),
+
+        .sec_ones(sec_ones),
+        .sec_tens(sec_tens),
+        .min_ones(min_ones),
+        .min_tens(min_tens),
+        .hr_ones(hr_ones),
+        .hr_tens(hr_tens),
+        .day(day),
+
+        .AN(AN),
+        .seg(seg)
+    );
+
 endmodule

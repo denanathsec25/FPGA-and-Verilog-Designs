@@ -24,7 +24,7 @@ module line_follower(LMP,LMN,RMP,RMN,D);
 output wire LMP,LMN,RMP,RMN;
 reg LMP,LMN,RMP,RMN;
 input wire [5:1]D;
-always @(D)
+always @(*)
 begin
 case({D[1],D[2],D[3],D[4],D[5]})
 5'b00100: begin

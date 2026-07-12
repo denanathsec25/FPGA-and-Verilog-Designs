@@ -23,9 +23,9 @@
 module Traffic_light(red,yellow,green,rst,clk);
 input rst,clk;
 output reg red,yellow,green;
-localparam s0=2'b00,
-s1=2'b01,
-s2=2'b10;
+localparam  s0=2'b00,
+            s1=2'b01,
+            s2=2'b10;
 
 reg [1:0]current_state,next_state;
 reg [5:0]count;

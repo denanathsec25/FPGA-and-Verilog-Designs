@@ -8,7 +8,15 @@
 **/*.srcs/
 *.xpr
 
-# Individual Vivado junk file types (just in case any escape the folders above)
+# EXCEPTIONS — keep these even though they're inside .srcs
+!**/*.srcs/sources_1/bd/**/*.bd
+!**/*.srcs/sources_1/new/**/*.coe
+!**/*.srcs/sources_1/new/**/*.mem
+!**/*.srcs/sources_1/imports/**/*.coe
+!**/*.srcs/sources_1/imports/**/*.mem
+!**/*.srcs/sources_1/ip/**/*.xci
+
+# Individual Vivado junk file types
 *.jou
 *.log
 *.str

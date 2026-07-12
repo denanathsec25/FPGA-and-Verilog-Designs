@@ -25,7 +25,7 @@ output reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day;
 input wire clk;
 input wire rst;
 
-/*localparam clk_freq = 100000000;
+localparam clk_freq = 100000000;
 
 reg [31:0] clock_count;
 reg one_second_enable;
@@ -51,7 +51,7 @@ begin
         one_second_enable<=0;
      end
  end
- end */
+ end 
  
 always @(posedge clk or posedge rst)
 begin
@@ -66,8 +66,8 @@ begin
         day <= 0;
      end
      
-    // else if(one_second_enable)
-    else
+    else if(one_second_enable)
+    
      begin
         sec_ones <= sec_ones + 1;
         if(sec_ones == 9)

@@ -125,6 +125,28 @@ FPGA-and-Verilog-Designs
 * XSim Simulator
 * FPGA Development Boards
 
+## Required File Types
+
+This repository keeps only the essential design files for each project — all Vivado-generated project clutter (`.cache`, `.runs`, `.sim`, `.hw`, `.gen`, `.ip_user_files`) is excluded via `.gitignore`.
+
+| File Type | Required For | Description |
+|-----------|-------------|-------------|
+| `.v` | **All projects** | Verilog source files — the actual RTL design code and testbenches |
+| `.xdc` | **All projects** | Xilinx Design Constraints — pin mapping, clock constraints, and I/O configuration for FPGA implementation |
+| `.bd` | Projects using **VIO** or other IP Integrator block designs | Block Design files — define how IP cores are wired together |
+| `.coe` | Projects using **VGA** or display output | Coefficient files — initialize Block RAM (BRAM) or ROM contents for font/image/color data |
+| `.mem` | Projects using **VGA** or memory-based designs | Memory initialization files — alternative to `.coe` for preloading memory contents |
+| `.xci` | Projects using **UART**, VIO, or other pre-built IP cores | Xilinx IP Core configuration files — define parameters for IP cores used outside a block design |
+
+### Minimum required files per project type
+
+- **Basic combinational/sequential logic** (AND Gate, Adders, Flip-Flops, Counters, etc.) → `.v` + `.xdc`
+- **VIO-based projects** → `.v` + `.xdc` + `.bd`
+- **VGA-based projects** → `.v` + `.xdc` + `.coe` and/or `.mem`
+- **UART-based projects** (if using Xilinx IP) → `.v` + `.xdc` + `.xci` (or `.bd` if built via IP Integrator)
+
+Only the files necessary to understand, reproduce, or resynthesize each design are tracked. Regenerable build artifacts are intentionally left out to keep the repository clean and readable.
+
 ## FPGA Resource Analysis
 
 ### 64:1 Multiplexer Resource Utilization Comparison
@@ -182,12 +204,10 @@ git clone https://github.com/denanathsec25/FPGA-and-Verilog-Designs.git
 
 ## Future Additions
 
-- Finite State Machines (FSM)
 - UART Protocol
 - SPI Protocol
 - I2C Protocol
 - PWM Generator
-- Traffic Light Controller
 - ALU Design
 - Memory Design
 - RISC-V Processor Modules
@@ -196,7 +216,7 @@ git clone https://github.com/denanathsec25/FPGA-and-Verilog-Designs.git
 
 This repository is open for educational purposes. Anyone is welcome to use, study, and modify the code for learning, academic, and non-commercial educational activities.
 
-© Denanath Shanmugasundaram
+© Denanath S
 
 ## Author
 

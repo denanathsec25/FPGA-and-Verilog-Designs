@@ -28,9 +28,9 @@ localparam  s0=2'b00,
             s2=2'b10;
 
 reg [1:0]current_state,next_state;
-reg [5:0]count;
+reg [4:0]count;
 
-always @(posedge clk or posedge rst)
+always @(posedge clk or posedge rst)  // PRESENT ST LOGIC
 if(rst)
 begin
     current_state<=s0;
@@ -50,7 +50,7 @@ case(current_state)
 
 s0:
 begin
-if(count == 29)
+if(count == 4'd29)
     next_state = s1;
 else
     next_state = s0;
@@ -58,7 +58,7 @@ end
 
 s1:
 begin
-if(count == 4)
+if(count == 4'd4)
     next_state = s2;
 else
     next_state = s1;
@@ -66,7 +66,7 @@ end
 
 s2:
 begin
-if(count == 9)
+if(count == 4'd9)
     next_state = s0;
 else
     next_state = s2;

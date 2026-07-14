@@ -20,20 +20,25 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Display_controler(
-    input clk,
+module Display_controller(
+    input clk,rst,
     input [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,
-    output reg [7:0]AN //activation of display
+    output reg [7:0]AN, //activation of display
+    output wire [7:0]seg
      );
-    reg [2:0]display_selection;
+    wire [2:0]display_selection;
+    reg [15:0]clk_div;
     reg [3:0]display_bcd;
-    wire [7:0]seg;
     reg dp;
     
-    always @(posedge clk)
+    always @(posedge clk or posedge rst)
     begin
-        display_selection <= display_selection + 1;
-    end 
+        if(rst)
+            clk_div <= 3'd0;
+        else
+            clk_div <= clk_div + 1'b1;
+    end
+    assign display_selection = clk_div[15:13];
  
     always @(*)
     begin
@@ -41,7 +46,7 @@ module Display_controler(
         3'd0:
         begin
             display_bcd = sec_ones;
-            dp = 1'b1;
+            dp = 1'b0;
             AN = 8'b11111110;
         end
         3'd1:
@@ -52,40 +57,36 @@ module Display_controler(
         end
         3'd2:
         begin
-            display_bcd = sec_ones;
+            display_bcd = min_ones;
             dp = 1'b1;
             AN = 8'b11111011;
         end
+        
         3'd3:
         begin
-            display_bcd = min_ones;
+            display_bcd = min_tens;
             dp = 1'b0;
             AN = 8'b11110111;
         end
         3'd4:
         begin
-            display_bcd = min_tens;
+            display_bcd = hr_ones;
             dp = 1'b1;
             AN = 8'b11101111;
         end
         3'd5:
         begin
-            display_bcd = hr_ones;
+            display_bcd = hr_tens;
             dp = 1'b0;
             AN = 8'b11011111;
         end
         3'd6:
         begin
-            display_bcd = hr_tens;
-            dp = 1'b1;
-            AN = 8'b10111111;
-        end
-        3'd7:
-        begin
             display_bcd = day;
-            dp = 1'b0;
-            AN = 8'b0111111;
+            dp = 1'b1;
+            AN = 8'b01111111;
         end
+        default : AN = 8'b11111111;
         endcase
     end
     

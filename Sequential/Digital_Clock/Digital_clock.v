@@ -20,15 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Digital_clk(sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,clk,rst);
-output reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day;
-input wire clk;
-input wire rst;
+module Digital_clock(seg,seg1,AN,clk,rst,min_set,hr_set);
+reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day;
+input clk;
+input rst,min_set,hr_set;
+output [7:0]seg,seg1,AN;
 
 localparam clk_freq = 100000000;
 
 reg [31:0] clock_count;
 reg one_second_enable;
+
+assign seg = seg1;
 
 always @(posedge clk or posedge rst)
 begin
@@ -85,6 +88,7 @@ begin
             min_ones <= 0;
             min_tens <= min_tens + 1; 
          end
+        
          if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9)
          begin
             min_tens <= 0;
@@ -105,11 +109,36 @@ begin
         begin
             day <= 0;
         end 
-    end 
+        if(min_set == 1)
+        begin
+            min_ones <= min_ones + 1;
+            if(min_ones == 9)
+            begin
+                min_ones <= 0;
+                min_tens <= min_tens + 1;
+            end
+        end
+        if(hr_set == 1)
+        begin
+            hr_ones <= hr_ones + 1;
+            if(hr_ones == 9 )
+            begin
+                hr_ones <= 0;
+                hr_tens <= hr_tens + 1;
+            end
+            if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3)
+            begin
+                hr_tens <= 0;
+                hr_ones <= 0;
+                day <= day +1;
+            end
+       end 
+    end
 end
 
-Display_controler display_unit (
+Display_controller display_unit (
         .clk(clk),
+        .rst(rst),
 
         .sec_ones(sec_ones),
         .sec_tens(sec_tens),
@@ -121,6 +150,6 @@ Display_controler display_unit (
 
         .AN(AN),
         .seg(seg)
-    );
+        );
 
 endmodule

@@ -7,11 +7,11 @@ $files = Get-ChildItem -Path $root -Recurse -File | Where-Object {
      $_.Extension -eq ".coe" -or
      $_.Extension -eq ".mem" -or
      $_.Extension -eq ".xci") -and
-    ($_.FullName -match "\.srcs\\(sources_1|constrs_1)\\(new|bd|imports|ip)\\")
+    ($_.FullName -match "\.srcs\\(sources_1|constrs_1|sim_1)\\(new|bd|imports|ip)\\")
 }
 
 foreach ($file in $files) {
-    if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1)\\(new|bd|imports|ip)\\(.*)$") {
+    if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1|sim_1)\\(new|bd|imports|ip)\\(.*)$") {
         $projectFolder = $matches[1]
         $relativePath = $matches[4]
         $fileName = Split-Path $relativePath -Leaf

@@ -61,3 +61,6 @@
 *.dir
 .DS_Store
 Thumbs.db
+
+# EXCEPTION — allow .bin files to be tracked (overrides *.bin above)
+!*.bin

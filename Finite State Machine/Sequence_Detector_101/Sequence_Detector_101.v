@@ -42,38 +42,22 @@ end
 always @(*)
 begin
     case(state)
-        s0:
-            if(x)
-                next_state = s1;
-            else
-                next_state = s0;
-               
-         s1:
-                if(x==0)
-                    next_state = s2;
-                else
-                    next_state = s0;
-               
-         s2:
-                if(x)
-                    next_state = s1;
-                 else
-                    next_state = s0;
-                    
-         default:
-                next_state = s0;
+        s0: next_state = (x) ? s1 : s0;      
+        s1: next_state = (!x) ? s2 : s1;
+        s2: next_state = (x) ? s1:s0;
+        default:next_state = s0;
     endcase
 end
 
 always @(*)
 begin
-    if(s2 && x == 1)
+    if(state == s2 && x == 1)
     begin
-        y = 1;
+        y = 1'b1;
     end  
     else
     begin
-        y = 0;
+        y = 1'b0;
     end
 end
 

@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Digital_clock(seg,seg1,AN,clk,rst,min_set,hr_set);
+module Digital_clock(seg,seg1,AN,clk,rst,min_set,hr_set,day_set);
 reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day;
 input clk;
-input rst,min_set,hr_set;
+input rst,min_set,hr_set,day_set;
 output [7:0]seg,seg1,AN;
 
 localparam clk_freq = 100000000;
@@ -109,28 +109,43 @@ begin
         begin
             day <= 0;
         end 
+        if(day_set)
+        begin
+        if(day == 6)
+            day <=0;
+            else
+                day <= day + 1;
+        end
         if(min_set == 1)
         begin
             min_ones <= min_ones + 1;
-            if(min_ones == 9)
+            if(min_tens == 5 && min_ones == 9)
             begin
+                hr_ones <= hr_ones + 1;
+                min_tens <= 0;
                 min_ones <= 0;
-                min_tens <= min_tens + 1;
+                
             end
+            else if( min_ones == 9)
+        begin
+            min_ones <= 0;
+            min_tens <= min_tens + 1;
+        end
+            
         end
         if(hr_set == 1)
         begin
             hr_ones <= hr_ones + 1;
-            if(hr_ones == 9 )
-            begin
-                hr_ones <= 0;
-                hr_tens <= hr_tens + 1;
-            end
-            if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3)
+            if(hr_tens == 2 && hr_ones == 3)
             begin
                 hr_tens <= 0;
                 hr_ones <= 0;
                 day <= day +1;
+            end
+            else if(hr_ones == 9 )
+            begin
+                hr_ones <= 0;
+                hr_tens <= hr_tens + 1;
             end
        end 
     end

@@ -62,3 +62,9 @@ set_property PACKAGE_PIN B5 [get_ports {seg1[6]}]
 set_property PACKAGE_PIN A6 [get_ports {seg1[7]}]
 
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
+
+
+set_property CONFIG_MODE SPIx4 [current_design]
+
+set_property IOSTANDARD LVCMOS33 [get_ports day_set]
+set_property PACKAGE_PIN H2 [get_ports day_set]

@@ -21,7 +21,7 @@
 
 // while runnig stimulation thriugh test bench change localparam clk_freq=10;
 
-module Digital_clk_tb;
+module Digital_clock_tb;
 
 reg clk;
 reg rst;
@@ -34,7 +34,7 @@ wire [3:0] hr_ones;
 wire [3:0] hr_tens;
 wire [3:0] day;
 
-Digital_clk uut (
+Digital_clock uut (
     .sec_ones(sec_ones),
     .sec_tens(sec_tens),
     .min_ones(min_ones),

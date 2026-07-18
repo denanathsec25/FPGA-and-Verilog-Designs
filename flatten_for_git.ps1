@@ -1,21 +1,14 @@
 $root = "E:\VLSI\Verilog"
 
 $files = Get-ChildItem -Path $root -Recurse -File | Where-Object {
-    ($_.Extension -eq ".v" -or
-     $_.Extension -eq ".xdc" -or
-     $_.Extension -eq ".bd" -or
-     $_.Extension -eq ".coe" -or
-     $_.Extension -eq ".mem" -or
-     $_.Extension -eq ".xci") -and
-    ($_.FullName -match "\.srcs\\(sources_1|constrs_1|sim_1)\\(new|bd|imports|ip)\\")
+    ($_.Extension -eq ".v" -or $_.Extension -eq ".xdc") -and
+    ($_.FullName -match "\.srcs\\(sources_1|constrs_1|sim_1)\\new\\")
 }
 
 foreach ($file in $files) {
-    if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1|sim_1)\\(new|bd|imports|ip)\\(.*)$") {
+    if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1|sim_1)\\new\\(.*)$") {
         $projectFolder = $matches[1]
-        $relativePath = $matches[4]
-        $fileName = Split-Path $relativePath -Leaf
-
+        $fileName = $matches[3]
         $destPath = Join-Path $projectFolder $fileName
 
         try {

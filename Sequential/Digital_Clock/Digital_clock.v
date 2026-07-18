@@ -20,18 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Digital_clock(seg,seg1,AN,clk,rst,min_set,hr_set,day_set);
-reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day;
-input clk;
-input rst,min_set,hr_set,day_set;
-output [7:0]seg,seg1,AN;
+module Digital_clock(
+input clk,decision,
+input rst,min_set,hr_set,day_set,date_set,
+output [7:0]seg,seg1,AN
+);
 
+reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,date_ones,date_tens;
 localparam clk_freq = 100000000;
 
 reg [31:0] clock_count;
 reg one_second_enable;
 
-assign seg = seg1;
+assign seg1 = seg;
 
 always @(posedge clk or posedge rst)
 begin
@@ -66,7 +67,9 @@ begin
         min_tens<=0;
         hr_ones<=0;
         hr_tens<=0;
-        day <= 0;
+        day <= 1;
+        date_ones <= 1;
+        date_tens <= 0;
      end
      
     else if(one_second_enable)
@@ -78,11 +81,13 @@ begin
             sec_ones <= 0;
             sec_tens <= sec_tens +1;
         end
+        
         if(sec_tens == 5 && sec_ones == 9)
         begin
             sec_tens <= 0;
             min_ones <= min_ones + 1;
          end
+         
         if(sec_tens == 5 && sec_ones == 9 && min_ones == 9) 
         begin
             min_ones <= 0;
@@ -94,31 +99,51 @@ begin
             min_tens <= 0;
             hr_ones <= hr_ones + 1;
         end
+        
         if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_ones == 9)
         begin
             hr_ones <= 0;
             hr_tens <= hr_tens+1;
         end
+        
         if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3)
         begin
             hr_tens <= 0;
             hr_ones <= 0;
             day <= day +1;
+            date_ones <= date_ones + 1;
         end
-        if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3 && day == 6)
+        
+        if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3 && day == 7)
         begin
-            day <= 0;
+            day <= 1;
         end 
+        
+         if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3 && date_ones == 1 && date_tens == 3)
+        begin
+            date_ones <= 1;
+            date_tens <= 0;
+        end
+        
+        else if(min_tens == 5 && min_ones == 9 && sec_tens == 5 && sec_ones == 9 && hr_tens == 2 && hr_ones == 3 && date_ones == 9)
+        begin
+        
+            date_ones <= 0;
+            date_tens <= date_tens + 1;
+        end 
+         
         if(day_set)
         begin
-        if(day == 6)
-            day <=0;
+        if(day == 7)
+            day <=1;
             else
                 day <= day + 1;
         end
+        
         if(min_set == 1)
         begin
             min_ones <= min_ones + 1;
+            
             if(min_tens == 5 && min_ones == 9)
             begin
                 hr_ones <= hr_ones + 1;
@@ -126,6 +151,7 @@ begin
                 min_ones <= 0;
                 
             end
+            
             else if( min_ones == 9)
         begin
             min_ones <= 0;
@@ -136,18 +162,37 @@ begin
         if(hr_set == 1)
         begin
             hr_ones <= hr_ones + 1;
+            
             if(hr_tens == 2 && hr_ones == 3)
             begin
                 hr_tens <= 0;
                 hr_ones <= 0;
-                day <= day +1;
             end
+            
             else if(hr_ones == 9 )
             begin
                 hr_ones <= 0;
                 hr_tens <= hr_tens + 1;
             end
-       end 
+            
+       end
+       if(date_set == 1)
+        begin
+            date_ones <=date_ones + 1;
+            
+            if(date_tens == 3 && date_ones == 1)
+            begin
+                date_tens <= 0;
+                date_ones <= 1;
+                
+            end
+            
+            else if( date_ones == 9)
+        begin
+            date_ones <= 0;
+            date_tens <= date_tens + 1;
+        end 
+       end
     end
 end
 
@@ -162,6 +207,10 @@ Display_controller display_unit (
         .hr_ones(hr_ones),
         .hr_tens(hr_tens),
         .day(day),
+        .date_ones(date_ones),
+        .date_tens(date_tens),
+        
+        .decision(decision),
 
         .AN(AN),
         .seg(seg)

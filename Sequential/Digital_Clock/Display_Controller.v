@@ -21,8 +21,8 @@
 
 
 module Display_controller(
-    input clk,rst,
-    input [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,
+    input clk,rst,decision,
+    input [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,date_ones,date_tens,
     output reg [7:0]AN, //activation of display
     output wire [7:0]seg
      );
@@ -34,14 +34,18 @@ module Display_controller(
     always @(posedge clk or posedge rst)
     begin
         if(rst)
-            clk_div <= 3'd0;
+            clk_div <= 16'd0;
+            
         else
             clk_div <= clk_div + 1'b1;
     end
+    
     assign display_selection = clk_div[15:13];
  
     always @(*)
     begin
+        if(!decision)
+        begin
         case (display_selection)
         3'd0:
         begin
@@ -80,14 +84,38 @@ module Display_controller(
             dp = 1'b0;
             AN = 8'b11011111;
         end
-        3'd6:
+        default : begin
+        AN = 8'b11111111;
+        dp = 1'b0;
+        end
+        endcase
+        end
+        
+        if(decision)
+        begin
+        case (display_selection)
+        
+        3'd0:
+        begin
+            display_bcd =  date_ones;
+            dp = 1'b0;
+            AN = 8'b11111110;
+         end
+         3'd1:
+         begin
+            display_bcd = date_tens;
+            dp = 1'b0;
+            AN = 8'b11111101;
+        end
+        3'd2:
         begin
             display_bcd = day;
-            dp = 1'b1;
-            AN = 8'b01111111;
+            dp = 1'b0;
+            AN = 8'b11110111;
         end
         default : AN = 8'b11111111;
         endcase
+        end
     end
     
     BCD_to_7Segment decoder(

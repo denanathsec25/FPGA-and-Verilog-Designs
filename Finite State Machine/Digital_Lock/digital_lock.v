@@ -21,17 +21,16 @@
 
 
 module Digital_lock(
-    output out,
+    output reg out,
     output reg new_pass,
     input clk,rst,ok,pass_change,
     input [3:0]input_password,new_password
     );
     reg [3:0]stored_password;
-    reg state, next_state;
-    localparam s0 = 2'b0,
-               s1 = 2'b1;
-               
-   assign out = (input_password == stored_password && ok) ?1:0;
+    reg [1:0]state, next_state;
+    localparam s0 = 2'b00,
+               s1 = 2'b01,
+               s2 = 2'b10;
                         
     always @(posedge clk or posedge rst)
     begin
@@ -43,27 +42,29 @@ module Digital_lock(
             else
             begin
                     state <= next_state;
-                    if ((state == s1) && pass_change)
-                           stored_password <= new_password;
-                           new_pass <= 1;
             end
     end
              
     always @(*)
     begin
-            state = s0;
             case (state)
             // ok = 1 => check password and 
             s0:
-            next_state = (stored_password == input_password && ok == 1)? s1 : s0;
+            next_state = (stored_password == input_password && ok && pass_change)? s1 : s2;
             //pass_change = 1 change password
             s1:
             begin
-                     if (pass_change)
-                begin
-                    next_state = s0;
-                end
-             end             
-             endcase
+                 stored_password <= new_password; 
+                 new_pass = 1'b1;
+                 #20;
+                 next_state = s0;  
+            end       
+            s2:
+            begin
+                 out = 1'b1;
+                 #20;
+                 next_state = s0;
+            end      
+            endcase
   end
 endmodule

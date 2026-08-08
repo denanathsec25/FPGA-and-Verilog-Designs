@@ -21,26 +21,35 @@
 
 
 module Digital_lock(
-    output reg out,
-    output reg new_pass,
-    input clk,rst,ok,pass_change,
+    output reg unlock,
+    output reg[3:0]new_password_out,
+    input clk,rst,ok,password_change,done,
     input [3:0]input_password,new_password
     );
-    reg [3:0]stored_password;
+    reg [3:0]current_password;
     reg [1:0]state, next_state;
     localparam s0 = 2'b00,
                s1 = 2'b01,
-               s2 = 2'b10;
-                        
+               s2 = 2'b10;               
     always @(posedge clk or posedge rst)
     begin
             if(rst)
             begin
                    state <= s0;
-                   stored_password <= 4'd12;
+                   current_password <= 4'd12;
+                   new_password_out <= 4'b0000;
             end
             else
             begin
+                    if(state == s2)
+                    begin
+                        current_password <= new_password;
+                        new_password_out[3:0] <= new_password[3:0];
+                    end
+                    else if(state != s2)
+                    begin
+                        new_password_out = 4'b0000;
+                    end
                     state <= next_state;
             end
     end
@@ -48,23 +57,30 @@ module Digital_lock(
     always @(*)
     begin
             case (state)
-            // ok = 1 => check password and 
-            s0:
-            next_state = (stored_password == input_password && ok && pass_change)? s1 : s2;
-            //pass_change = 1 change password
-            s1:
-            begin
-                 stored_password <= new_password; 
-                 new_pass = 1'b1;
-                 #20;
-                 next_state = s0;  
-            end       
-            s2:
-            begin
-                 out = 1'b1;
-                 #20;
-                 next_state = s0;
-            end      
+             s0:
+                begin
+                    next_state = ((current_password == input_password) && ok) ? s1:s0 ;
+                end
+             s1:
+                begin
+                    unlock = 1'b1;
+                    if(done)
+                        next_state = s0;
+                    else if(password_change)
+                        next_state = s2;
+                    else
+                        next_state = s1;
+                 end
+             s2:
+                 begin
+                    next_state = (ok) ? s0:s2;
+                 end  
+              default:
+                   begin
+                      //next_state = s0;
+                      unlock = 1'b0;
+                      //new_password_out = 4'b0000;
+                   end 
             endcase
   end
 endmodule

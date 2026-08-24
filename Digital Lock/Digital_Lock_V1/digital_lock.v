@@ -48,7 +48,7 @@ module Digital_lock(
                     end
                     else if(state != s2)
                     begin
-                        new_password_out = 4'b0000;
+                        new_password_out <= 4'b0000;
                     end
                     state <= next_state;
             end
@@ -60,6 +60,7 @@ module Digital_lock(
              s0:
                 begin
                     next_state = ((current_password == input_password) && ok) ? s1:s0 ;
+                    unlock = 1'b0;
                 end
              s1:
                 begin
@@ -74,12 +75,12 @@ module Digital_lock(
              s2:
                  begin
                     next_state = (ok) ? s0:s2;
+                    unlock = 1'b0;
+
                  end  
               default:
                    begin
-                      //next_state = s0;
                       unlock = 1'b0;
-                      //new_password_out = 4'b0000;
                    end 
             endcase
   end

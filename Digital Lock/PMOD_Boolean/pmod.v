@@ -1,7 +1,7 @@
 module pmod_kypd_4x4 (
-    input  wire        clk,        // 100 MHz
-    input  wire        rst,        // active high
-    input  wire [3:0]  col,        // keypad columns
+    input  clk,        // 100 MHz
+    input  rst,        // active high
+    input  [3:0]  col, // keypad columns
     output reg  [3:0]  row,        // keypad rows (active low)
     output reg  [3:0]  key_bin     // detected key
 );

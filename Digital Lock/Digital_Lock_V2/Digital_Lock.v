@@ -8,7 +8,7 @@ module Digital_lock(
     
     reg [3:0]current_password[0:1];
     reg [2:0]state,next_state;
-    reg key_count;
+    reg [3:0]first_digit;
     
     localparam s0 = 3'b000,
                s1 = 3'b001,
@@ -21,19 +21,22 @@ module Digital_lock(
         if(rst)
         begin
             state <= s0;
-            key_count <= 1'b1;
             current_password[1] <= 4'd0;
             current_password[0] <= 4'd8;
             new_password_out <= 4'b0000;
         end 
         else
         begin
-            if(state == s3)
+            if(state == s0)
+            begin
+                first_digit <= input_password;
+            end
+            if(state == s3 && ok)
             begin
                     current_password[1] <= input_password;
                     new_password_out <= input_password;
             end
-            if(state == s4)
+            if(state == s4 && ok)
             begin
                     current_password[0] <= input_password;
                     new_password_out <= input_password;
@@ -42,19 +45,18 @@ module Digital_lock(
         end
     end
     
-    reg [3:0]temp; 
+ 
     always @(*)
     begin
         case(state)
             s0:
             begin
-                temp = input_password;
                 next_state = s1;
                 unlock = 1'b0;
             end
             s1:
             begin
-                next_state = ( current_password[1]==temp && current_password[0]==input_password)?s2:s0;
+                next_state = ( current_password[1]==first_digit && current_password[0]==input_password)?s2:s0;
                 unlock = 1'b0;
             end
             s2:
@@ -69,13 +71,15 @@ module Digital_lock(
             end
             s3:
             begin
-                    next_state = (ok) ? s4:s3;
                     unlock = 1'b0;
+                    next_state = (ok) ? s4:s3;
+                    
              end
              s4:
              begin
-                    next_state = (ok) ? s0:s4;
                     unlock = 1'b0;
+                    next_state = (ok) ? s0:s4;
+                    
              end  
              default:
                    begin

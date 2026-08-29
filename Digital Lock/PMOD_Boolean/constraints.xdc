@@ -1,3 +1,5 @@
+create_clock -period 10.000 -name sys_clk [get_ports clk]
+
 set_property IOSTANDARD LVCMOS33 [get_ports {col[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {col[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {col[1]}]

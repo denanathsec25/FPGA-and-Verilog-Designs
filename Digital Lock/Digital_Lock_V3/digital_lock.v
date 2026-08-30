@@ -1,8 +1,9 @@
 `timescale 1ns / 1ps
 module Digital_lock(
     output reg unlock,
-    output reg [3:0] row, key_bin,
-    output reg key_valid,
+    output [3:0] row, key_bin,
+    output key_valid,
+    output [2:0] debug_state,
     input [3:0] col,
     input clk,rst
     );
@@ -20,6 +21,8 @@ module Digital_lock(
                s2 = 3'b010,
                s3 = 3'b011,
                s4 = 3'b100;
+               
+    assign debug_state = state;
                               
     always @(posedge clk or posedge rst)
     begin
@@ -28,6 +31,7 @@ module Digital_lock(
             state <= s0;
             current_password[1] <= 4'd0;
             current_password[0] <= 4'd8;
+            first_digit <= 4'd0;
         end 
         else
         begin
@@ -56,6 +60,8 @@ module Digital_lock(
                 if(key_valid)begin
                     next_state = ( current_password[1] == first_digit && current_password[0]== key_bin)?s2:s0;
                 end
+                else 
+                    next_state = s1;
             end
             s2:
             begin
@@ -70,13 +76,13 @@ module Digital_lock(
             s3:
             begin
                     unlock = 1'b0;
-                    next_state = (done) ? s4:s3;
+                    next_state = (key_valid) ? s4:s3;
                     
              end
              s4:
              begin
                     unlock = 1'b0;
-                    next_state = (done) ? s0:s4;
+                    next_state = (key_valid) ? s0:s4;
                     
              end  
              default:
@@ -87,5 +93,5 @@ module Digital_lock(
         endcase
     end
     
-    keypad_4x4 pmod(.row(row),.key_bin(key_bin),.key_valid(key_valid),.clk(clk),.rst(rst),.col(col));
+    keypad_4x4 pmod(row, key_bin,key_valid,clk,rst,col);
 endmodule

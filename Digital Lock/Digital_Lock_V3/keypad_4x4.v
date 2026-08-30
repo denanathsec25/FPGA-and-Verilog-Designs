@@ -59,46 +59,46 @@ begin
     col_latched <= col_syn;
 end
 
- reg key_held;
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             key_bin  <= 4'h0;
-            key_held <= 1'b0;
-            key_valid <= 1'b0;
+            //key_valid <= 1'b0;
         end 
         else if (tick) begin
-            key_valid <= 1'b0;
-            if (!key_held && col_latched != 4'b1111) begin
-                key_held <= 1'b1;
+            if (!key_valid && col_latched != 4'b1111) begin
                 key_valid <= 1'b1;
                 case ({row_scan, col_latched})
 
-                    6'b00_1110: key_bin <= 4'h0;
-                    6'b00_1101: key_bin <= 4'hF;
-                    6'b00_1011: key_bin <= 4'hE;
-                    6'b00_0111: key_bin <= 4'hD;
+                    // Row 0
+                    6'b00_1110: key_bin <= 4'h1;
+                    6'b00_1101: key_bin <= 4'h2;
+                    6'b00_1011: key_bin <= 4'h3;
+                    6'b00_0111: key_bin <= 4'hA;
 
-                    6'b01_1110: key_bin <= 4'h1;
-                    6'b01_1101: key_bin <= 4'h2;
-                    6'b01_1011: key_bin <= 4'h3;
-                    6'b01_0111: key_bin <= 4'hA;
+                    // Row 1
+                    6'b01_1110: key_bin <= 4'h4;
+                    6'b01_1101: key_bin <= 4'h5;
+                    6'b01_1011: key_bin <= 4'h6;
+                    6'b01_0111: key_bin <= 4'hB;
 
-                    6'b10_1110: key_bin <= 4'h4;
-                    6'b10_1101: key_bin <= 4'h5;
-                    6'b10_1011: key_bin <= 4'h6;
-                    6'b10_0111: key_bin <= 4'hB;
+                    // Row 2
+                    6'b10_1110: key_bin <= 4'h7;
+                    6'b10_1101: key_bin <= 4'h8;
+                    6'b10_1011: key_bin <= 4'h9;
+                    6'b10_0111: key_bin <= 4'hC;
 
-                    6'b11_1110: key_bin <= 4'h7;
-                    6'b11_1101: key_bin <= 4'h8;
-                    6'b11_1011: key_bin <= 4'h9;
-                    6'b11_0111: key_bin <= 4'hC;
+                    // Row 3
+                    6'b11_1110: key_bin <= 4'h0;
+                    6'b11_1101: key_bin <= 4'hF;
+                    6'b11_1011: key_bin <= 4'hE;
+                    6'b11_0111: key_bin <= 4'hD;
                     default: key_bin <= 4'h0;
                 endcase
             end
             
             if (col_latched == 4'b1111)
-                key_held <= 1'b0;
+                key_valid <= 1'b0;
         end
     end
 

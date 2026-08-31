@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module keypad_4x4(
             output reg [3:0] row, key_bin,
             output reg key_valid,
@@ -63,7 +64,7 @@ end
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             key_bin  <= 4'h0;
-            //key_valid <= 1'b0;
+            key_valid <= 1'b0;
         end 
         else if (tick) begin
             if (!key_valid && col_latched != 4'b1111) begin
@@ -97,8 +98,8 @@ end
                 endcase
             end
             
-            if (col_latched == 4'b1111)
-                key_valid <= 1'b0;
+            /*if (col_latched == 4'b1111)
+                key_valid <= 1'b0;*/
         end
     end
 

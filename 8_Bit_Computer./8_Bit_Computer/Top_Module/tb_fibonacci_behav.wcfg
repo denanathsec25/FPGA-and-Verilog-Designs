@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_fibonacci_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_fibonacci" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="7.530001 us"></ZoomEndTime>
+      <Cursor1Time time="7.530000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="198"></NameColumnWidth>
+      <ValueColumnWidth column_width="190"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject type="logic" fp_name="/tb_fibonacci/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_fibonacci/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_fibonacci/start">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_fibonacci/prog">
+      <obj_property name="ElementShortName">prog</obj_property>
+      <obj_property name="ObjectShortName">prog</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_fibonacci/prog_addr">
+      <obj_property name="ElementShortName">prog_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">prog_addr[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_fibonacci/prog_data">
+      <obj_property name="ElementShortName">prog_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">prog_data[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_fibonacci/input_data">
+      <obj_property name="ElementShortName">input_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">input_data[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_fibonacci/output_data">
+      <obj_property name="ElementShortName">output_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_fibonacci/halted">
+      <obj_property name="ElementShortName">halted</obj_property>
+      <obj_property name="ObjectShortName">halted</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group76">
+      <obj_property name="label">Control_Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tb_fibonacci/NOP">
+         <obj_property name="ElementShortName">NOP[3:0]</obj_property>
+         <obj_property name="ObjectShortName">NOP[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/LDA">
+         <obj_property name="ElementShortName">LDA[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LDA[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/ADD">
+         <obj_property name="ElementShortName">ADD[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ADD[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/SUB">
+         <obj_property name="ElementShortName">SUB[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SUB[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/STA">
+         <obj_property name="ElementShortName">STA[3:0]</obj_property>
+         <obj_property name="ObjectShortName">STA[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/JMP">
+         <obj_property name="ElementShortName">JMP[3:0]</obj_property>
+         <obj_property name="ObjectShortName">JMP[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/IN">
+         <obj_property name="ElementShortName">IN[3:0]</obj_property>
+         <obj_property name="ObjectShortName">IN[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/LDI">
+         <obj_property name="ElementShortName">LDI[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LDI[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/SHL">
+         <obj_property name="ElementShortName">SHL[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SHL[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/AND">
+         <obj_property name="ElementShortName">AND[3:0]</obj_property>
+         <obj_property name="ObjectShortName">AND[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/SHR">
+         <obj_property name="ElementShortName">SHR[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SHR[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/XOR">
+         <obj_property name="ElementShortName">XOR[3:0]</obj_property>
+         <obj_property name="ObjectShortName">XOR[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/JZ">
+         <obj_property name="ElementShortName">JZ[3:0]</obj_property>
+         <obj_property name="ObjectShortName">JZ[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/JNZ">
+         <obj_property name="ElementShortName">JNZ[3:0]</obj_property>
+         <obj_property name="ObjectShortName">JNZ[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/OUT">
+         <obj_property name="ElementShortName">OUT[3:0]</obj_property>
+         <obj_property name="ObjectShortName">OUT[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_fibonacci/HLT">
+         <obj_property name="ElementShortName">HLT[3:0]</obj_property>
+         <obj_property name="ObjectShortName">HLT[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

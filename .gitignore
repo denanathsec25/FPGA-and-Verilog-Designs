@@ -52,4 +52,4 @@
 *.sdb
 *.dir
 .DS_Store
-Thumbs.db
+Thumbs.db!flatten_for_git.sh
